@@ -1,9 +1,17 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $seeders = [
+        //'RolesTableSeeder',
+        //'AdminTableSeeder',
+        'XtraUsersTableSeeder',
+    ];
+
+
     /**
      * Run the database seeds.
      *
@@ -11,9 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RolesTableSeeder::class);
-        $this->call(AdminTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        // $this->call(UsersTableSeeder::class);
+        Model::unguard();
+
+        foreach ($this->seeders as $seedClass) {
+            $this->call($seedClass);
+        }
+
+        Model::reguard();
     }
 }

@@ -64,6 +64,8 @@ return [
         'users' => 'users',
 
 
+        'staff' => 'staff',
+
         /*
         |--------------------------------------------------------------------------
         | Roles Table
@@ -89,6 +91,10 @@ return [
         */
 
         'permissions' => 'permissions',
+
+
+        'staff_has_permissions' => 'staff_has_permissions',
+
 
         /*
         |--------------------------------------------------------------------------
@@ -116,6 +122,7 @@ return [
 
         'user_has_roles' => 'user_has_roles',
 
+        'staff_has_roles' => 'staff_has_roles',
         /*
         |--------------------------------------------------------------------------
         | Role Permissions Table

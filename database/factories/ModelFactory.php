@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -14,10 +15,18 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
+/*
+DB::table('users')->insert([
+    'name' => 'test',
+    'email' => str_random(10).'@gmail.com',
+    'password' => bcrypt('test'),
+]);
+*/
+
     return [
-        'name' => $faker->name,
+        'name' => $faker->userName,
         'email' => $faker->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });

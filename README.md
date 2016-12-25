@@ -5,41 +5,63 @@ There are only few convergence points which interfere with the app. These points
 
 - A route file registered in your `app\Providers\RouteServiceProvider.php`. The file is provided in the `unrulynatives/helpers` package, you need to publish it (see the package's readme.md).
 
-- Package service providers and facadae declared in your `config/app.php`. THe packages are registered out-of-the-box. Don't want a package? Just comment out the service provider and delete the package from `composer.json`.
+- Package service providers and facadae declared in your `config/app.php`. The packages are registered out-of-the-box. Don't want a package? Just comment out the service provider and delete the package from `composer.json`.
 
 - Traits declared in the `app/User.php` model. Among them `use Unrulynatives\Helpers\UserExtensions;`.
 
 - some of the dependencies, such as `"Amranidev/scaffold-interface` have their own routes defined not in routes file, but in the package itself (`users`, `admin` in case of this one). 
 One way of dealing with such conflicts is to move `App\Providers\RouteServiceProvider::class,` to position below the package service provide declaration.
 
-[![Latest Stable Version](https://poser.pugx.org/unrulynatives/laravel-starter-kit/v/stable)](https://packagist.org/packages/unrulynatives/laravel-starter-kit)
-
-# Demo
-
-http://dev.unrulynatives.com
-
-A DB-fed list of available features is available here:
-[DEMO app here](http://dev.unrulynatives.com/package)
-
-# What it is
-1. This is an instance of Laravel PHP Framework 5.3. A starter app. Its philosophy is slightly different than similar starter kits. Here are the highlights:
-
-- All changes made over the original Laravel App have COMMENTS FOR BEGINNERS. You can delete them if you consider them not necessary. 
-
-- Some solutions have variants, so that everyone one can pick the variant which suits their needs of the moment.
-
-- I have installed theme system (igaster/laravel-theme) to provide solutions for different CSS frameworks. You can switch between them at will:
-
-3. I am an amateur programmer, not a pro. I treat this starter app and a standalone package with helpers as a self-teaching tutorial. These two packages were originally my private repository of snippets, solutions, answers from StackOverflow and ideas which I needed to develop my proejcts. They contain all code which might come useful.
-
-### for the original Laravel Framework go to [Laravel Repository](https://github.com/laravel/laravel)
 
 
 
+# INSTALLATION
 
-# FEATURES
+## Variant 1: Merging into your existing project
 
-A complete, DB-fed list of implemented and future features is avalable at the [DEMO site](http://dev.unrulynatives.com). Most of the features are developed by preconfigured 3rd aprty packages.
+Note: all files and changes made to the original Laravel 5.3 laravel app are made in a way allowing you to get rid of some or all functions. 
+
+    - All view files are stored in `starter` folder with exception of
+    - `auth` folder which is created by the native Laravel command `php artisan make:auth`
+
+    - all routes for the Starter functions are placed in `routes/starter.app`. You can comment out the routes in bulk or unregister the route file in `app/Providers/RouteServiceProvider.php`
+
+    - Controllers for the Starter App are stored in subfolder `app/Http/Controllers/Starter`
+
+## Variant 2: Setting up a new app
+
+1. Pull this starter kit to your local drive
+
+2. run `composer install`. You need to install the Composer itself to do that. See [Composer Download Page](https://getcomposer.org/download/).
+
+3. clone the file `.env.example` and rename it to `.env`
+
+4. Fill .env file with vital db information
+
+5. Generate application key with shell command `artisan key:generate`
+
+6. populate the database
+You will need to create tables in your database. Use `php artisan migrate` to do that.
+After that : `php artisan db:seed`
+
+After seeding the staff table with an admin user, the password for the admin user is : '123456'
+
+
+
+
+
+7. Initiate the Laravel's bundled authentication functions. As described here
+use `php artisan make:auth` commmand. 
+
+
+
+### LAST STEP
+After completing the above steps the app should work. 
+Point your browser to the `localhost/APP_FOLDER/public/`.. You should see the landing page. (This solution required DB connection to work properly)
+Point your browser to the `localhost/APP_FOLDER/public/welcome`.. You should see the landing page. (You will see the standard welcome screen delivered by Laravel)
+
+
+
 
 ## Assorted solutions
 
@@ -47,7 +69,7 @@ A complete, DB-fed list of implemented and future features is avalable at the [D
 
     - slugs for models powered by `cviebrock/eloquent-sluggable` package.
 
-    - Two themes pre-defined, powered by `igaster/laravel-theme`.
+    - 'Two' themes pre-defined, powered by `igaster/laravel-theme`.
 
     - some examples of `intervention/image` for manipulating images.
 
@@ -55,7 +77,7 @@ A complete, DB-fed list of implemented and future features is avalable at the [D
 
     - QR code generator for any page, reloads for changes of hashtag value (See JS feature above). Provided by `simplesoftwareio/simple-qrcode`
 
-    - the app can recognize type of user's device, thanks to `jenssegers/agent`.
+    - the app can recognizes type of user's device, thanks to `jenssegers/agent`.
 
     - Date presenters provided by `jenssegers/date` package. Extra helpers also available
 
@@ -75,7 +97,7 @@ A complete, DB-fed list of implemented and future features is avalable at the [D
 
     - Wholesale recreation of slugs. Needed when you decide to implement slugs after a number of records is already submitted by users
 
-    - user tracking (`spatie/laravel-activitylog`)
+    //- user tracking (`spatie/laravel-activitylog`) (PHP7!)
 
 
     - `/admin/server-status` - point your browser here to display server status, Laravel version and php version
@@ -84,14 +106,14 @@ A complete, DB-fed list of implemented and future features is avalable at the [D
 
     - permission system provided by `spatie/laravel-permission`.
 
-## Develpler tools and features
+## Developer tools and features
 
     - Laravel debugbar
     - A very handy scaffolding interface, DB-powered. `Amranidev/scaffold-interface`.
     - some scaffolding methods provided by `laralib/l5scaffold`.
     - manage translation files - URL `translations`. Powered by `barryvdh/laravel-translation-manager`.
     - see logs of your app thanks to `arcanedev/log-viewer` package.
-    - 
+
 
 ## CSS/JS hacks and improvements over used frameworks:
 
@@ -187,53 +209,10 @@ A DB-fed list is available at the
         See URL `admintools/user-track`
 
 
-# INSTALLATION
-
-## Variant 1: Merging into your existing project
-
-Note: all files and changes made to the original Laravel 5.3 laravel app are made in a way allowing you to get rid of some or all functions. 
-
-    - All view files are stored in `starter` folder with exception of
-    - `auth` folder which is created by the native Laravel command `php artisan make:auth`
-
-    - all routes for the Starter functions are placed in `routes/starter.app`. You can comment out the routes in bulk or undegister the route file in `app/Providers/RouteServiceProvider.php`
-
-    - Controllers for the Starter App are stored in subfloder `app/Http/Controllers/Starter`
-
-## Variant 2: Setting up a new app
-
-1. Pull this starter kit to your local drive
-
-2. run `composer install`. You need to install the Composer itself to do that. See [Composer Download Page](https://getcomposer.org/download/).
-
-3. Generate application key with shell command `artisan key:generate`
-
-4. clone the file `.env.example` and rename it to `.env`
-
-5. Create and populate the database. Make sure that 
-- you would place the DB credentials to the `.env` file 
-    DB_CONNECTION=mysql // this is the default mysql database connection. You can define extra connections later.
-    DB_DATABASE=homestead
-    DB_USERNAME=homestead
-    DB_PASSWORD=secret
-
-- in your `config/database.php` you would make the `mysql` connection refer to your `.env` file.
-
-6. Initiate the Laravel's bundled authentication functions. As described here
-use `php artisan make:auth` commmand. 
-
-You will also need to create tables in your database. Use `php artisan migrate` to do that.
-
-
-### LAST STEP
-After completing the above steps the app should work. 
-Point your browser to the `localhost/APP_FOLDER/public/`.. You should see the landing page. (This solution required DB connection to work properly)
-Point your browser to the `localhost/APP_FOLDER/public/welcome`.. You should see the landing page. (You will see the standard welcome screen delivered by Laravel)
-
 
 ## integrating this package with bare Laravel app
 
-This starter is designed to work alongside the bare Laravel app with as few modifications to the "blank" app as possible. The reason is simple: ssometimes new versions of the Laravel come with changes to the app structure.
+This starter is designed to work alongside the bare Laravel app with as few modifications to the "blank" app as possible. The reason is simple: sometimes new versions of the Laravel come with changes to the app structure.
 
 The majority of the files are copied by the `unrulynatives/helpers` package: as soon as you publish the package assets, all necessary foles would appear in your app: 
 

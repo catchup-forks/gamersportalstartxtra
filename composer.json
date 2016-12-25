@@ -53,7 +53,8 @@
     "unicodeveloper/laravel-password": "1.0.*",
     "unrulynatives/attitudes": "0.*",
     "unrulynatives/helpers": "0.*",
-    "watson/rememberable": "dev-master"
+    "watson/rememberable": "dev-master",
+    "nesbot/carbon": "^1.21"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

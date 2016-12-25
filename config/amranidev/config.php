@@ -26,7 +26,7 @@
      |
      */
 
-     'package' => 'Laravel',
+     'package' => 'StarterKit',
 
      /*
      |--------------------------------------------------------------------
@@ -37,13 +37,13 @@
      |
      */
 
-     'model' => base_path().'/app',
+     'model' => base_path('Modules') . 'StarterKit' . '/Models',
 
-     'views' => base_path().'/resources/views',
+     'views' => base_path('Modules') . 'StarterKit' . '/resources/views',
 
-     'controller' => base_path().'/app/Http/Controllers',
+     'controller' => base_path('Modules') . 'StarterKit' . '/app/Http/Controllers',
 
-     'migration' => base_path().'/database/migrations',
+     'migration' => base_path('Modules') . 'StarterKit' . '/database/migrations',
 
      /*
      |--------------------------------------------------------------------
@@ -66,7 +66,7 @@
      |
      */
 
-     'routes' => base_path().'/app/Http/routes.php',
+     'routes' => base_path('Modules') . 'StarterKit' . '/routes/routes.php',
 
      /*
      |--------------------------------------------------------------------
@@ -80,9 +80,9 @@
      |
      */
 
-     'controllerNameSpace' => 'App\\Http\\Controllers',
+     'controllerNameSpace' => 'StarterKit\\Http\\Controllers',
 
-     'modelNameSpace' => 'App',
+     'modelNameSpace' => 'StarterKit',
 
       /*
       |-------------------------------------------------------------------

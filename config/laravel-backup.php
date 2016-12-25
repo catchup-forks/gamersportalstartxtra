@@ -53,7 +53,7 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'local',
+                'backups',
             ],
         ],
     ],
@@ -140,11 +140,11 @@ return [
          * Telegram requires the installation of the irazasyed/telegram-bot-sdk package.
          */
         'events' => [
-            'whenBackupWasSuccessful'     => ['log'],
-            'whenCleanupWasSuccessful'    => ['log'],
-            'whenHealthyBackupWasFound'   => ['log'],
-            'whenBackupHasFailed'         => ['log', 'mail'],
-            'whenCleanupHasFailed'        => ['log', 'mail'],
+            'whenBackupWasSuccessful' => ['log'],
+            'whenCleanupWasSuccessful' => ['log'],
+            'whenHealthyBackupWasFound' => ['log'],
+            'whenBackupHasFailed' => ['log', 'mail'],
+            'whenCleanupHasFailed' => ['log', 'mail'],
             'whenUnhealthyBackupWasFound' => ['log', 'mail'],
         ],
 
@@ -153,27 +153,27 @@ return [
          */
         'mail' => [
             'from' => 'your@email.com',
-            'to'   => 'your@email.com',
+            'to' => 'your@email.com',
         ],
 
         /*
          * Here you can specify how messages should be sent to Slack.
          */
         'slack' => [
-            'channel'  => '#backups',
+            'channel' => '#backups',
             'username' => 'Backup bot',
-            'icon'     => ':robot:',
+            'icon' => ':robot:',
         ],
 
         /*
          * Here you can specify how messages should be sent to Pushover.
          */
         'pushover' => [
-            'token'  => env('PUSHOVER_APP_TOKEN'),
-            'user'   => env('PUSHOVER_USER_KEY'),
+            'token' => env('PUSHOVER_APP_TOKEN'),
+            'user' => env('PUSHOVER_USER_KEY'),
             'sounds' => [
                 'success' => env('PUSHOVER_SOUND_SUCCESS', 'pushover'),
-                'error'   => env('PUSHOVER_SOUND_ERROR', 'siren'),
+                'error' => env('PUSHOVER_SOUND_ERROR', 'siren'),
             ],
         ],
 
@@ -182,7 +182,7 @@ return [
          */
         'telegram' => [
             'bot_token' => env('TELEGRAM_BOT_TOKEN'),
-            'chat_id'   => env('TELEGRAM_CHAT_ID'),
+            'chat_id' => env('TELEGRAM_CHAT_ID'),
             'async_requests' => env('TELEGRAM_ASYNC_REQUESTS', false),
             'disable_web_page_preview' => env('TELEGRAM_DISABLE_WEB_PAGE_PREVIEW', true),
         ],

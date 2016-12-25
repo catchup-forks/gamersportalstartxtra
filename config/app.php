@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'UN Starter Kit',
+    'name' => 'StarterKit',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://starterkit.app'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,8 +78,8 @@ return [
     */
 
     // 'locale' => 'en',
-    'locale' => 'en','pl','es','de','zw-tw',
-    'available_language' => array('en','pl','es','de','zw-tw'), 
+    'locale' => 'en', 'de',
+    'available_language' => array('en', 'de'),
 
     /*
     |--------------------------------------------------------------------------
@@ -181,28 +181,17 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-
-
         // a scaffolding package https://github.com/laralib/l5scaffold
         // "Laralib\L5scaffold\GeneratorsServiceProvider",
         Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
-
         Amranidev\Ajaxis\AjaxisServiceProvider::class,
-
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
-
         Arcanedev\NoCaptcha\NoCaptchaServiceProvider::class,
-
         Arrilot\Widgets\ServiceProvider::class,
-
         Barryvdh\Debugbar\ServiceProvider::class,
-
         ClassyGeeks\Potion\PotionServiceProvider::class,
-
         Cmgmyr\Messenger\MessengerServiceProvider::class,
-
         Collective\Html\HtmlServiceProvider::class,
-
         \Conner\Likeable\LikeableServiceProvider::class,
 
         // package for tags
@@ -218,9 +207,7 @@ return [
         igaster\laravelTheme\themeServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
-
         Jenssegers\Agent\AgentServiceProvider::class,
-
         Jenssegers\Date\DateServiceProvider::class,
 
         // https://github.com/laravel/socialite
@@ -233,12 +220,10 @@ return [
         ThyagoBrejao\Commentable\ServiceProvider::class,
 
         // package for tracking user's activity see `starter/admintools` for all tools
-        Spatie\Activitylog\ActivitylogServiceProvider::class,
+        //Spatie\Activitylog\ActivitylogServiceProvider::class,
 
         Spatie\Backup\BackupServiceProvider::class,
-
         Spatie\LinkChecker\LinkCheckerServiceProvider::class,
-
         Spatie\Permission\PermissionServiceProvider::class,
 
         // Spatie\ResponseCache\ResponseCacheServiceProvider::class,
@@ -250,26 +235,27 @@ return [
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
 
         // https://github.com/spatie/laravel-analytics
-        Spatie\Analytics\AnalyticsServiceProvider::class,
+        //Spatie\Analytics\AnalyticsServiceProvider::class,
 
-        // translations manager
-        Barryvdh\TranslationManager\ManagerServiceProvider::class,
-        
         // protects against dumb passwords "unicodeveloper/laravel-password": "1.0.*"
         Unicodeveloper\DumbPassword\DumbPasswordServiceProvider::class,
 
-
-
-
         // Unrulynatives packages for developing tests only
         // Laraveldaily\Timezones\TimezonesServiceProvider::class,
-        
+
         // UN package to manage upvoting system
         // Unrulynatives\Attitudes\AttitudesServiceProvider::class,
         Unrulynatives\Attitudes\AttitudesServiceProvider::class,
 
         // UN package to put starter kit on top of your app
         Unrulynatives\Helpers\HelpersServiceProvider::class,
+
+
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
+        // translations manager & IDE Helper
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
 
     ],
 
@@ -318,26 +304,22 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-
-
-        // here start classes for extra packages
-        // sorted alphabetically
-
+        // here classes start for extra packages
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         // https://github.com/laravie/html/tree/5.3
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Input'     => Illuminate\Support\Facades\Input::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
         // https://github.com/igaster/laravel-theme
         'Theme' => igaster\laravelTheme\Facades\Theme::class,
+
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Activity' => Spatie\Activitylog\ActivitylogFacade::class,
-        'Theme' => igaster\laravelTheme\Facades\Theme::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Date' => Jenssegers\Date\Date::class,
-        'Activity' => Spatie\Activitylog\Models\Activity::class,
+        //'Activity' => Spatie\Activitylog\Models\Activity::class,
 
         'Geocoder' => Spatie\Geocoder\GeocoderFacade::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
@@ -345,17 +327,22 @@ return [
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
         // 'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'Captcha' => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
-        'Widget'       => Arrilot\Widgets\Facade::class,
-        'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
+        'Widget' => Arrilot\Widgets\Facade::class,
+        'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
 
         // custom-made helpers
-        'dateHelper'=> App\Helpers\DateHelper::class,
-        'avatarHelper'=> App\Helpers\AvatarHelper::class,
+        'dateHelper' => App\Helpers\DateHelper::class,
+        'avatarHelper' => App\Helpers\AvatarHelper::class,
+
         // 'countNondistinct'=> App\Helpers\DistinctHelper::class,
-        'sitewideHelper'=> App\Helpers\SitewideHelper::class,
-        'avatarHelper'=> App\Helpers\AvatarHelper::class,
-        'standpointHelper'=> App\Helpers\StandpointHelper::class,
-        'isActive'=> App\Helpers\ActiveIfRequest::class,
+        'sitewideHelper' => App\Helpers\SitewideHelper::class,
+        'standpointHelper' => App\Helpers\StandpointHelper::class,
+        'isActive' => App\Helpers\ActiveIfRequest::class,
+
+        'Module' => Nwidart\Modules\Facades\Module::class,
+
+
+
 
 
 

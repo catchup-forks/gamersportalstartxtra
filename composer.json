@@ -1,90 +1,93 @@
 {
-    "name": "unrulynatives/laravel-starter-kit",
-    "description": "The Unruly Natives Laravel Framework starter kit",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
-    "type": "project",
-    "require": {
-        "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "laravel/socialite": "~2.0",
-        "laravelcollective/html": "5.3.x-dev",
-
-        "Amranidev/scaffold-interface": "dev-master",
-        "arcanedev/log-viewer": "~3.0",
-        "arcanedev/no-captcha": "~3.0",
-        "arrilot/laravel-widgets": "dev-master",
-        "barryvdh/laravel-debugbar": "*",
-        "barryvdh/laravel-translation-manager": "dev-master",
-        "classygeeks/potion": "dev-master",
-        "cmgmyr/messenger": "~2.0",
-        "cviebrock/eloquent-sluggable": "dev-master",
-        "doctrine/dbal": "2.4.5",
-        "fabpot/goutte": "~3.1",
-        "igaster/laravel-theme": "~1",
-        "intervention/image": "2.*",
-        "jenssegers/agent" : "~2.3",
-        "jenssegers/date": "^3.2",
-        "rtconner/laravel-likeable" : "1.*",
-        "rtconner/laravel-tagging": "2.*",
-        "simplesoftwareio/simple-qrcode": "1.*",
-
-        "spatie/laravel-activitylog": "^1.6",
-        "spatie/laravel-backup": "^3.9",
-        "spatie/laravel-permission": "1.5.*@dev",
-        "spatie/laravel-link-checker": "^1.0",
-        "spatie/laravel-or-abort": "^1.0",
-        "spatie/geocoder": "^2.1",
-        "spatie/laravel-url-signer": "^1.1",
-        "spatie/laravel-analytics": "^2.1",
-        "spatie/laravel-responsecache": "dev-master",
-        "thyagobrejao/laravel-commentable": "^1.0",
-        "unicodeveloper/laravel-password": "1.0.*",
-        "watson/rememberable" : "dev-master",
-
-        "unrulynatives/helpers": "0.*",
-        "unrulynatives/attitudes": "0.*"
-    
-    },
-    "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
-    },
-    "autoload": {
-        "classmap": [
-            "database"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "php artisan key:generate"
-        ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "unrulynatives/laravel-starter-kit",
+  "description": "The Unruly Natives Laravel Framework starter kit",
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=5.6.4",
+    "laravel/framework": "5.3.*",
+    "laravel/socialite": "~2.0",
+    "laravelcollective/html": "5.3.x-dev",
+    "Amranidev/scaffold-interface": "dev-master",
+    "arcanedev/log-viewer": "~3.0",
+    "arcanedev/no-captcha": "~3.0",
+    "arrilot/laravel-widgets": "dev-master",
+    "barryvdh/laravel-debugbar": "*",
+    "barryvdh/laravel-translation-manager": "dev-master",
+    "classygeeks/potion": "dev-master",
+    "cmgmyr/messenger": "~2.0",
+    "cviebrock/eloquent-sluggable": "dev-master",
+    "doctrine/dbal": "2.4.5",
+    "fabpot/goutte": "~3.1",
+    "igaster/laravel-theme": "~1",
+    "intervention/image": "2.*",
+    "jenssegers/agent": "~2.3",
+    "jenssegers/date": "^3.2",
+    "rtconner/laravel-likeable": "1.*",
+    "rtconner/laravel-tagging": "2.*",
+    "simplesoftwareio/simple-qrcode": "1.*",
+    "spatie/laravel-backup": "^3.9",
+    "spatie/laravel-permission": "1.5.*@dev",
+    "spatie/laravel-link-checker": "^1.0",
+    "spatie/laravel-or-abort": "^1.0",
+    "spatie/geocoder": "^2.1",
+    "spatie/laravel-url-signer": "^1.1",
+    "spatie/laravel-responsecache": "dev-master",
+    "thyagobrejao/laravel-commentable": "^1.0",
+    "unicodeveloper/laravel-password": "1.0.*",
+    "watson/rememberable": "dev-master",
+    "unrulynatives/helpers": "0.*",
+    "unrulynatives/attitudes": "0.*",
+    "patchwork/jsqueeze": "^2.0",
+    "predis/predis": "^1.1",
+    "orchestra/asset": "^3.3",
+    "intervention/imagecache": "^2.3",
+    "maknz/slack": "^1.7",
+    "nwidart/laravel-modules": "^1.14"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~5.0",
+    "symfony/css-selector": "3.1.*",
+    "symfony/dom-crawler": "3.1.*"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan optimize"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

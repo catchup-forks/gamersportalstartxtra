@@ -91,7 +91,7 @@ return [
             ],
 
 
-            // This theme extends BasicTheme and ovverides SOME views/assets in its folders
+      // This theme extends BasicTheme and overrides SOME views/assets in its folders
 
             'AnotherTheme' => [
                 'extends'	=> 'BasicTheme',
